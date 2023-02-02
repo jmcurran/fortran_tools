@@ -122,8 +122,8 @@ class Fixed2Free(object):
         
         #debug
 #        if continuation_type != "generic":
-#            print "continuation_type:", continuation_type
-#            print "source lines: \n",prev_line+'\n',line+'\n'
+#            print( "continuation_type:", continuation_type)
+#            print( "source lines: \n",prev_line+'\n',line+'\n')
         
         #add appropriate continuation to current line
         if continuation_type == "hollerith":
@@ -161,15 +161,15 @@ class Fixed2Free(object):
         for hollerith in Fixed2Free.re_hollerith.finditer(prev_line):
             hollerith_end = hollerith.end(1)+int(hollerith.group(2))+1
             prev_line_length = len(prev_line)-1
-            #print "hollerith wrap detected"
-            #print "\tline number:", i # note this is prev line number (i-1)+1 since starts at 0
-            #print "\tline length:", prev_line_length
-            #print "\thollerith end:", hollerith_end
+            #print( "hollerith wrap detected")
+            #print( "\tline number:", i # note this is prev line number (i-1)+1 since starts at 0)
+            #print( "\tline length:", prev_line_length)
+            #print( "\thollerith end:", hollerith_end)
             if (hollerith_end > prev_line_length):
-#                print "hollerith wrap detected"
-#                print "\tline number:", i # note this is prev line number (i-1)+1 since starts at 0
-#                print "\tline length:", prev_line_length
-#                print "\thollerith end:", hollerith_end
+#                print( "hollerith wrap detected")
+#                print( "\tline number:", i # note this is prev line number (i-1)+1 since starts at 0)
+#                print( "\tline length:", prev_line_length)
+#                print( "\thollerith end:", hollerith_end)
                 return "hollerith"
                 
         #var continuation
